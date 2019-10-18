@@ -1,21 +1,9 @@
-const journalEntry = [
-    {
-        date: '10-14-19',
-        concept: 'building DOM Components',
-        entry: 'Today we learned to manipulate the DOM using JAVASCRIPT. later in the day we went over JSON',
-        mood: 'glad'
-    }
-];
-
-journalEntry.push({ date: '10-11-19', concept: 'objects as things', entry: 'today we went over how to manipulate objects in javascript', mood: 'confused' });
-journalEntry.push({ date: '10-10-19', concept: 'functions and logic', entry: 'today we went over using functions and methods in javascript', mood: 'glad' });
-
-const makeJournalEntryComponent = (journalEntry) => {
+const makeJournalEntryComponent = (entries) => {
     return `
-        <h2>${journalEntry.concept}</h2>
-            <div>${journalEntry.date}</div>
-            <aside>${journalEntry.entry}</aside>
-            <aside>${journalEntry.mood}</aside>    
+        <h2>${entries.concept}</h2>
+            <div>${entries.date}</div>
+            <aside>${entries.entry}</aside>
+            <aside>${entries.mood}</aside>    
     `
 }
 
@@ -27,7 +15,15 @@ const renderJournalEntries = (entries) => {
         entriesContainer.innerHTML += makeJournalEntryComponent(entries)
     }
 }
-
+fetch("http://localhost:3000/entries")
+    .then(entries => entries.json())
+    .then(parsedEntries =>{
+        console.log(parsedEntries)
+        parsedEntries.forEach(entries => {
+            let addEntriesToDom = document.querySelector(".entryLog")
+            addEntriesToDom.innerHTML += makeJournalEntryComponent(entries)
+        });
+    })
 renderJournalEntries(journalEntry)
 
 
