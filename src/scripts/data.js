@@ -10,7 +10,10 @@
 
  const API = {
      getJournalEntries () {
+         console.log("getjournalentries")
         return fetch("http://localhost:3000/entries")
              .then(response => response.json())
      }
  }
+//you name the export the object you want to export
+ export default API;
