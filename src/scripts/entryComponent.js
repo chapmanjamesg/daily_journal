@@ -1,10 +1,10 @@
 const makeJournal = {
-    makeJournalEntryComponent: (render) => {
+    makeJournalEntryComponent: (entries) => {
         return `
-        <h2>${render.concept}</h2>
-            <div>${render.date}</div>
-            <aside>${render.entry}</aside>
-            <aside>${render.mood}</aside>    
+        <h2>${entries.concept}</h2>
+            <div>${entries.date}</div>
+            <aside>${entries.entry}</aside>
+            <aside>${entries.mood}</aside>    
     `
     }
 }

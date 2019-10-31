@@ -8,7 +8,7 @@ const journalIf = {
         for (let i = 0; i < entries.length; i++) {
             let journalEntries = entries[i]
             entriesContainer.innerHTML += makeJournal.makeJournalEntryComponent(journalEntries)
-            console.log("hi")
+            // console.log("hi")
         }
     }
 }
