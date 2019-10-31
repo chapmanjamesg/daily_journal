@@ -14,14 +14,13 @@ const API = {
         return fetch("http://localhost:3000/entries")
             .then(response => response.json())
     },
-    saveJournalEntries() {
-    
-        fetch("http://localhost:3000/entries", {
+    saveJournalEntries(newJournalEntry) {
+        return fetch("http://localhost:3000/entries", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(response)
+            body: JSON.stringify(newJournalEntry)
 
         })
         .then(response => response.json())

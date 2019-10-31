@@ -15,17 +15,15 @@ getCall()
 
 const saveToAPIEvent = document.getElementById("recordJournalEntry").addEventListener("click", event => {
     debugger
-    const date = document.querySelector("#journalDate").value
-    const concept = document.querySelector("#conceptsCovered").value
-    const entry = document.querySelector("#journalEntry").value
-    const mood = document.querySelector("#moodForTheDay").value
-    // making the scroll to text
-    const textMood = mood.options[mood.selectedIndex].text
+    const date = document.querySelector("#journalDate")
+    const concept = document.querySelector("#conceptsCovered")
+    const entry = document.querySelector("#journalEntry")
+    const mood = document.querySelector("#moodForTheDay")
 
     const inputArray = [date, concept, entry, mood]
  
-    if (date.value, concept.value, entry.value, mood.value) {
-            const newEntry = newJournalEntry.createJournalObject(date.value, concept.value, entry.value, textMood)
+   
+            const newEntry = newJournalEntry.createJournalObject(date.value, concept.value, entry.value, mood.value)
             API.saveJournalEntries(newEntry)
                 //this is the later point that I had to call the api fetch
                 .then(entries => getCall(entries))
@@ -33,9 +31,7 @@ const saveToAPIEvent = document.getElementById("recordJournalEntry").addEventLis
                 inputField.value = ""
             })
         
-    } else {
-        window.alert("I need you to help yourself and fill out me right!")
-    }
+  
 
 })
 export default saveToAPIEvent

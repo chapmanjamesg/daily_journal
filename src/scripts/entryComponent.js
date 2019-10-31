@@ -2,9 +2,9 @@ const makeJournal = {
     makeJournalEntryComponent: (entries) => {
         return `
         <h2>${entries.concept}</h2>
-            <div>${entries.date}</div>
+            <div>Date: ${entries.date}</div>
             <aside>${entries.entry}</aside>
-            <aside>${entries.mood}</aside>    
+            <aside>The Mood: ${entries.mood}</aside>    
     `
     }
 }
