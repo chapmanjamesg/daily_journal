@@ -11,19 +11,19 @@
     <h1>Daily Journal</h1>
     <form action="">
         <fieldset>
-            <label for="journalDate">Date of entry:</label>
+            <label class="inputField" for="journalDate">Date of entry:</label>
             <input type="date" name="jounralDate" id="journalDate">
         </fieldset>
         <fieldset>
-            <label for="conceptsCovered">Concepts covered:</label>
+            <label class='inputField' for="conceptsCovered">Concepts covered:</label>
             <input type="text" name="conceptsCovered" id="conceptsCovered">
         </fieldset>
         <fieldset>
-                <label for="journalEntry">Journal entry:</label>
+                <label class='inputField' for="journalEntry">Journal entry:</label>
                 <textarea name="journalEntry" id="journalEntry" cols="30" rows="4" placeholder="Make a journal Entry"></textarea>
         </fieldset>
         <fieldset>
-                <label for="moodForTheDay">Mood for the day:</label>
+                <label class='inputField' for="moodForTheDay">Mood for the day:</label>
                 <select size="1" name="moodForTheDay" id="moodForTheDay">
                     <option>How are you Feeling?</option>
                     <option value="sad">Sad</option>
@@ -33,7 +33,20 @@
                 </select>
         </fieldset>
     </form>
-    <button type="submit" value="Record Journal Entry" id="recordJournalEntry">Record Journal Entry</button>
+    <button type="submit" id="recordJournalEntry">Record Journal Entry</button>
+    <fieldset class="filterJournal">
+        <legend>Filter Journal Entries by Mood 
+            <br>
+            <label for="moodRadio" >Sad</label>
+            <input type="radio" name="moodRadio" value="sad">
+            <label for="moodRadio">Mad</label>
+            <input type="radio" name="moodRadio" value="mad">
+            <label for="moodRadio">Glad</label>
+            <input type="radio" name="moodRadio" value="glad">
+            <label for="moodRadio">Confused</label>
+            <input type="radio" name="moodRadio" value="confused">
+        </legend>
+    </fieldset>
     <article class="entryLog"></article>
     <!-- <script src="scripts/data.js"></script>
     <script src="scripts/entriesDOM.js"></script>

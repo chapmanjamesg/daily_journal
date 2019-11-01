@@ -7,7 +7,7 @@
 //             addEntriesToDom.innerHTML += makeJournalEntryComponent(entries)
 //         });
 //     })
-import newJournalEntry from "./factory.js"
+
 const API = {
     getJournalEntries() {
         console.log("getjournalentries")
