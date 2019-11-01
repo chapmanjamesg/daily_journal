@@ -10,7 +10,7 @@
 
 const API = {
     getJournalEntries() {
-        console.log("getjournalentries")
+        // console.log("getjournalentries")
         return fetch("http://localhost:3000/entries")
             .then(response => response.json())
     },

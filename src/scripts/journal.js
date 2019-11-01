@@ -3,11 +3,12 @@ import journalIf from "./entriesDOM.js"
 import newJournalEntry from "./factory.js"
 
 
+
 //had to make a function here so I can call it later
 const getCall = () => {
     API.getJournalEntries()
-    //you needed to add the (entries) for it to actually get the info
-    .then(entries => journalIf.renderJournalEntries(entries))
+        //you needed to add the (entries) for it to actually get the info
+        .then(entries => journalIf.renderJournalEntries(entries))
 }
 
 // do not forget to call your function to print
@@ -21,19 +22,39 @@ const saveToAPIEvent = document.getElementById("recordJournalEntry").addEventLis
     const mood = document.querySelector("#moodForTheDay").value
 
     const inputArray = [date, concept, entry, mood]
- 
-        if (!date == null || !concept == null || !entry == null || mood == null){
-            const newEntry = newJournalEntry.createJournalObject(date, concept, entry, mood)
-            API.saveJournalEntries(newEntry)
-                //this is the later point that I had to call the api fetch
-                .then(entries => getCall(entries))
-            inputArray.forEach(inputField => {
-                inputField = ""
-            })
-        } else {
-            window.alert("You need to fill me out you douche!")
-        }
-  
+
+    if (!date == null || !concept == null || !entry == null || mood == null) {
+        const newEntry = newJournalEntry.createJournalObject(date, concept, entry, mood)
+        API.saveJournalEntries(newEntry)
+            //this is the later point that I had to call the api fetch
+            .then(entries => getCall(entries))
+        inputArray.forEach(inputField => {
+            inputField = ""
+        })
+    } else {
+        window.alert("You need to fill me out you douche!")
+    }
+
 
 })
+
+const filterEvents = document.getElementsByName("moodRadio")
+
+filterEvents.forEach(button => {
+    button.addEventListener("click", event => {
+        const moodFilter = event.target.value
+        API.getJournalEntries()
+            .then(moodEntries => {
+                console.log(moodEntries)
+                const fileredArray = entries.filter(entry=> entry.mood == moodFilter)
+                for(const entry of fileredArray){
+                    const journalHTML =makeJournalEntryComponent(entry)
+                    entriesContainer.innerHTML = ""
+                    journalIf.renderJournalEntries(entries)
+                }
+            })
+
+
+    }
+)})
 export default saveToAPIEvent
