@@ -1,6 +1,7 @@
 import API from "./data.js"
 import journalIf from "./entriesDOM.js"
 import newJournalEntry from "./factory.js"
+import makeJournal from "./entryComponent.js"
 
 
 
@@ -40,17 +41,17 @@ const saveToAPIEvent = document.getElementById("recordJournalEntry").addEventLis
 
 const filterEvents = document.getElementsByName("moodRadio")
 
-filterEvents.forEach(button => {
-    button.addEventListener("click", event => {
+filterEvents.forEach(radioButton => {
+    radioButton.addEventListener("click", event => {
         const moodFilter = event.target.value
         API.getJournalEntries()
             .then(moodEntries => {
-                console.log(moodEntries)
-                const fileredArray = entries.filter(entry=> entry.mood == moodFilter)
+                const fileredArray = moodEntries.filter(entry=> entry.mood == moodFilter)
+                console.log(fileredArray)
                 for(const entry of fileredArray){
-                    const journalHTML =makeJournalEntryComponent(entry)
-                    entriesContainer.innerHTML = ""
-                    journalIf.renderJournalEntries(entries)
+                    const journalHTML =makeJournal.makeJournalEntryComponent(entry)
+                    fileredArray.innerHTML = ""
+                    journalIf.renderJournalEntries(journalHTML)
                 }
             })
 
