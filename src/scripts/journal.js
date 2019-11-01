@@ -15,22 +15,24 @@ getCall()
 
 const saveToAPIEvent = document.getElementById("recordJournalEntry").addEventListener("click", event => {
     debugger
-    const date = document.querySelector("#journalDate")
-    const concept = document.querySelector("#conceptsCovered")
-    const entry = document.querySelector("#journalEntry")
-    const mood = document.querySelector("#moodForTheDay")
+    const date = document.querySelector("#journalDate").value
+    const concept = document.querySelector("#conceptsCovered").value
+    const entry = document.querySelector("#journalEntry").value
+    const mood = document.querySelector("#moodForTheDay").value
 
     const inputArray = [date, concept, entry, mood]
  
-   
-            const newEntry = newJournalEntry.createJournalObject(date.value, concept.value, entry.value, mood.value)
+        if (!date == null || !concept == null || !entry == null || mood == null){
+            const newEntry = newJournalEntry.createJournalObject(date, concept, entry, mood)
             API.saveJournalEntries(newEntry)
                 //this is the later point that I had to call the api fetch
                 .then(entries => getCall(entries))
             inputArray.forEach(inputField => {
-                inputField.value = ""
+                inputField = ""
             })
-        
+        } else {
+            window.alert("You need to fill me out you douche!")
+        }
   
 
 })
