@@ -44,14 +44,16 @@ const filterEvents = document.getElementsByName("moodRadio")
 filterEvents.forEach(radioButton => {
     radioButton.addEventListener("click", event => {
         const moodFilter = event.target.value
-        API.getJournalEntries()
+// made a new array to filter through the json
+        API.moodJournalEntry(moodFilter)
             .then(moodEntries => {
-                const fileredArray = moodEntries.filter(entry=> entry.mood == moodFilter)
-                console.log(fileredArray)
-                for(const entry of fileredArray){
+                const moodArray = moodEntries.filter(entry=> entry.mood == moodFilter)
+                // console.log(filteredArray)
+                for(const entry of moodArray){
                     const journalHTML =makeJournal.makeJournalEntryComponent(entry)
-                    fileredArray.innerHTML = ""
-                    journalIf.renderJournalEntries(journalHTML)
+                    filteredArray.innerHTML = ""
+                    journalIf.renderJournalEntries(filteredArray)
+                    // console.log(journalHTML)
                 }
             })
 
