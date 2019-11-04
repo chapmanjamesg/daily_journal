@@ -29,6 +29,16 @@ const API = {
     moodJournalEntry(moodFilter) {
         return fetch(`http://localhost:3000/entries?mood=${moodFilter}`)
         .then(response=> response.json())
+    },
+    deleteJournalEntries(entryToDelete) {
+        return fetch(`http://localhost:3000/entries/${entryToDelete}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+        })
+        .then(response => response.json())
     }
 }
 //you name the export the object you want to export
