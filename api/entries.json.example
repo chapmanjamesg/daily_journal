@@ -34,13 +34,6 @@
       "entry": "today we went over how to delete things from json server",
       "mood": "mad",
       "id": 5
-    },
-    {
-      "date": "2019-11-04",
-      "concept": "lab work",
-      "entry": "I was working on getting a delete functionality to the buttons but was having issues getting it to wait for the buttons to be formed",
-      "mood": "glad",
-      "id": 6
     }
   ]
 }
