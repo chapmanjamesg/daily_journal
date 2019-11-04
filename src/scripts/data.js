@@ -10,7 +10,7 @@
 
 const API = {
     getJournalEntries() {
-        console.log("getjournalentries")
+        // console.log("getjournalentries")
         return fetch("http://localhost:3000/entries")
             .then(response => response.json())
     },
@@ -24,6 +24,11 @@ const API = {
 
         })
         .then(response => response.json())
+    },
+    //made this to filter through the moods, got to remember that the ? is the way that you search in a json fetch
+    moodJournalEntry(moodFilter) {
+        return fetch(`http://localhost:3000/entries?mood=${moodFilter}`)
+        .then(response=> response.json())
     }
 }
 //you name the export the object you want to export

@@ -20,6 +20,20 @@
       "entry": "today we went over using functions and methods in javascript",
       "mood": "glad",
       "id": 3
+    },
+    {
+      "date": "10-31-19",
+      "concept": "editing",
+      "entry": "today we went over the steps we need to edit items in a json server",
+      "mood": "sad",
+      "id": 3
+    },
+    {
+      "date": "10-29-19",
+      "concept": "deleting",
+      "entry": "today we went over how to delete things from json server",
+      "mood": "mad",
+      "id": 3
     }
   ]
 }
