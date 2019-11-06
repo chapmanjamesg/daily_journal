@@ -10,20 +10,21 @@
 <body>
     <h1>Daily Journal</h1>
     <form action="">
+        <input type="hidden" id="entryId" value="" />
         <fieldset>
-            <label class="inputField" for="journalDate">Date of entry:</label>
-            <input type="date" name="jounralDate" id="journalDate">
+            <label class="inputField" id="entryDate" for="journalDate">Date of entry:</label>
+            <input type="date" name="journalDate" id="journalDate">
         </fieldset>
         <fieldset>
-            <label class='inputField' for="conceptsCovered">Concepts covered:</label>
+            <label class='inputField' id="entryConcept" for="conceptsCovered">Concepts covered:</label>
             <input type="text" name="conceptsCovered" id="conceptsCovered">
         </fieldset>
         <fieldset>
-                <label class='inputField' for="journalEntry">Journal entry:</label>
+                <label class='inputField' id="entryEntry" for="journalEntry">Journal entry:</label>
                 <textarea name="journalEntry" id="journalEntry" cols="30" rows="4" placeholder="Make a journal Entry"></textarea>
         </fieldset>
         <fieldset>
-                <label class='inputField' for="moodForTheDay">Mood for the day:</label>
+                <label class='inputField' id="entryMood" for="moodForTheDay">Mood for the day:</label>
                 <select size="1" name="moodForTheDay" id="moodForTheDay">
                     <option>How are you Feeling?</option>
                     <option value="sad">Sad</option>
@@ -33,7 +34,8 @@
                 </select>
         </fieldset>
     </form>
-    <button type="submit" id="recordJournalEntry">Record Journal Entry</button>
+    <button type="button" id="recordJournalEntry">Record Journal Entry</button>
+    <button type="button" hidden="hidden" id="saveJournalEntry">Save Journal Entry</button>
     <fieldset class="filterJournal">
         <legend>Filter Journal Entries by Mood 
             <br>

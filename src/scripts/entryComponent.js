@@ -6,6 +6,7 @@ const makeJournal = {
             <aside>${entries.entry}</aside>
             <aside>The Mood: ${entries.mood}</aside>  
             <button type="delete" id="deleteJournalEntry--${entries.id}">Delete</button> 
+            <button type="edit" id="editJournalEntry--${entries.id}">Edit</button>
     `
     }
 }

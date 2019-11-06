@@ -75,8 +75,82 @@ deleteEvent.addEventListener("click", event => {
             .then(() => getCall())
     }
 })
+const editEvent = document.querySelector(".entryLog")
+editEvent.addEventListener("click", event =>{
+    
+    const saveButtonHide = (event) => {
+        let saveButton = document.querySelector("#saveJournalEntry")
+        // console.log(saveButton.hidden)
+        if (saveButton.hidden === true) {
+            saveButton.removeAttribute("hidden")
+        } else {
+            saveButton.setAttribute("hidden", "hidden")
+        }
+    }
+    const recordButtonHide = (event) => {
+        let recordButton = document.querySelector("#recordJournalEntry")
+        // console.log(recordButton.hidden)
+        if (recordButton.hidden === true) {
+            recordButton.removeAttribute("hidden")
+        } else {
+            recordButton.setAttribute("hidden", "hidden")
+        }
+    }
+    recordButtonHide(event)
+    saveButtonHide(event)
+})
 
 
+editEvent.addEventListener("click", event => {
+    if (event.target.id.startsWith("editJournalEntry--")) {
+        const entryToEdit = event.target.id.split("--")[1]
+        updateFormFields(entryToEdit)
+    }
+})
+const updateFormFields = entryId => {
+    const hiddenEntryId = document.querySelector("#entryId")
+    const DateInput = document.querySelector("#journalDate")
+    const conceptInput = document.querySelector("#conceptsCovered")
+    const entryInput = document.querySelector("#journalEntry")
+    const moodInput = document.querySelector("#moodForTheDay")
+    
+    API.updateFormFetch(entryId)
+    .then(entry => {
+        // console.log(conceptInput)
+        hiddenEntryId.value = entry.id
+        conceptInput.value = entry.concept
+        DateInput.value = entry.date
+        entryInput.value = entry.entry
+        moodInput.value = entry.mood
+        // console.log(entry.mood)
+    })
+}
 
+const saveEvent = document.querySelector("#saveJournalEntry")
+
+saveEvent.addEventListener("click", event => {
+    // console.log(entryId)
+    const hiddenEntryId = document.querySelector("#entryId")
+    if (hiddenEntryId.value !== "") {
+        editEntry(entryId.value)
+    } else {
+        saveToAPIEvent()
+    }
+})
+
+const editEntry = id =>{
+    const updatedObject = {
+        concept: document.querySelector("#conceptsCovered").value,
+        date: document.querySelector("#journalDate").value,
+        entry: document.querySelector("#journalEntry").value,
+        mood: document.querySelector("#moodForTheDay").value
+    }
+
+    API.editJournalEntry(id, updatedObject)
+    .then(entries=>{
+        getCall(entries)
+        document.querySelector("#entryId").value = ""
+    })
+}
 
 export default saveToAPIEvent
