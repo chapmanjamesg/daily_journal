@@ -1,35 +1,35 @@
 {
   "entries": [
     {
-      "date": "10-14-19",
       "concept": "building DOM Components",
-      "entry": "Today we learned to manipulate the DOM using JAVASCRIPT. later in the day we went over JSON",
+      "date": "2019-10-14",
+      "entry": "Today we learned to manipulate the DOM using JAVASCRIPT. later in the day we went over JSON k;jafkdjfs",
       "mood": "glad",
       "id": 1
     },
     {
-      "date": "10-11-19",
       "concept": "objects as things",
-      "entry": "today we went over how to manipulate objects in javascript",
+      "date": "2019-10-11",
+      "entry": "today we went over how to manipulate objects in javascript ",
       "mood": "confused",
       "id": 2
     },
     {
-      "date": "10-10-19",
+      "date": "2019-10-10",
       "concept": "functions and logic",
       "entry": "today we went over using functions and methods in javascript",
       "mood": "glad",
       "id": 3
     },
     {
-      "date": "10-31-19",
+      "date": "2019-10-31",
       "concept": "editing",
       "entry": "today we went over the steps we need to edit items in a json server",
       "mood": "sad",
       "id": 4
     },
     {
-      "date": "10-29-19",
+      "date": "2019-10-29",
       "concept": "deleting",
       "entry": "today we went over how to delete things from json server",
       "mood": "mad",
@@ -41,6 +41,13 @@
       "entry": "I was working on getting a delete functionality to the buttons but was having issues getting it to wait for the buttons to be formed",
       "mood": "glad",
       "id": 6
+    },
+    {
+      "date": "2019-11-06",
+      "concept": "daily journal part 10",
+      "entry": "I was working on this so long and hard that I didn't notice that I actually hit mvp",
+      "mood": "confused",
+      "id": 7
     }
   ]
 }

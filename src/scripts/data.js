@@ -39,6 +39,20 @@ const API = {
 
         })
         .then(response => response.json())
+    },
+    updateFormFetch(entryId){
+        return fetch(`http://localhost:3000/entries/${entryId}`)
+        .then(response => response.json())
+    },
+    editJournalEntry(id, updatedObject){
+        return fetch(`http://localhost:3000/entries/${id}`,{
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedObject)
+        })
+    .then(response => response.json())
     }
 }
 //you name the export the object you want to export
